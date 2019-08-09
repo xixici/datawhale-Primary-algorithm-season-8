@@ -79,14 +79,19 @@ $$
 ##### 3.2 损失函数的优化
 对于二元逻辑回归的损失函数极小化，有比较多的方法，最常见的有梯度下降法，坐标轴下降法，牛顿法等。这里推导出梯度下降法中θ每次迭代的公式。这里给出矩阵法推导二元逻辑回归梯度的过程。     
 对于
+
 $$
 J(\theta) = -Y^T\bullet logh_{\theta}(X) - (E-Y)^T\bullet log(E-h_{\theta}(X))
 $$
+
 我们用J(θ)对θ向量求导可得：     
+
 $$
 \frac{\partial}{\partial\theta}J(\theta) = X^T[\frac{1}{h_{\theta}(X)}\odot h_{\theta}(X)\odot (E-h_{\theta}(X))\odot (-Y)] + X^T[\frac{1}{E-h_{\theta}(X)}\odot h_{\theta}(X)\odot (E-h_{\theta}(X))\odot (E-Y)]
 $$
+
 这一步我们用到了向量求导的链式法则，和下面三个基础求导公式的矩阵形式：   
+
 $$
 \frac{\partial}{\partial x}logx = 1/x    
 
@@ -94,7 +99,9 @@ $$
 
 \frac{\partial x\theta}{\partial \theta} = x
 $$
+
 对于刚才的求导公式我们进行化简可得：
+
 $$
 \frac{\partial}{\partial\theta}J(\theta) = X^T(h_{\theta}(X) - Y )
 $$
